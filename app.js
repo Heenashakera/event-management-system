@@ -24,4 +24,17 @@ document.getElementById('event-form').addEventListener('submit', function(e) {
       li.remove();
     }
   });
+  document.getElementById('search-bar').addEventListener('input', function(e) {
+    const searchQuery = e.target.value.toLowerCase();
+    const events = document.querySelectorAll('#event-list li');
+  
+    events.forEach(function(event) {
+      const eventText = event.textContent.toLowerCase();
+      if (eventText.includes(searchQuery)) {
+        event.style.display = 'flex';
+      } else {
+        event.style.display = 'none';
+      }
+    });
+  });
   
